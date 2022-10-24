@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bordsbokningar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="753">
+    <Grid Height="440" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30px"/>
+            <RowDefinition Height="60px"/>
+            <RowDefinition Height="60px"/>
+            <RowDefinition Height="60px"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <DatePicker Grid.Row="1" x:Name="SelectDate_date" HorizontalAlignment="Center" VerticalAlignment="Center" FirstDayOfWeek="Monday" SelectedDateChanged="Date_Selected" Width="130"/>
+        <Label x:Name="Title" Content="Mias a lá Carte: Bordsbokning" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="24" FontFamily="Broadway" Grid.ColumnSpan="3" Width="410" Margin="10,0,0,0"/>
+        <Button x:Name="Table1_16_btn" Content="Bord 1:&#xD;&#xA;16:00 - 18:00" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table2_16_btn" Grid.Column="1" Content="Bord 2:&#xD;&#xA;16:00 - 18:00" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table3_16_btn" Grid.Column="2" Content="Bord 3:&#xD;&#xA;16:00 - 18:00" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table4_16_btn" Grid.Column="3" Content="Bord 4:&#xD;&#xA;16:00 - 18:00" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="130" Click="Button_Click"/>
+        <Button x:Name="Table5_16_btn" Grid.Column="4" Content="Bord 5:&#xD;&#xA;16:00 - 18:00" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="40" Width="130"/>
 
+        <Button x:Name="Table1_18_btn" Content="Bord 1:&#xD;&#xA;18:00 - 20:00" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table2_18_btn" Grid.Column="1" Content="Bord 2:&#xD;&#xA;18:00 - 20:00" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table3_18_btn" Grid.Column="2" Content="Bord 3:&#xD;&#xA;18:00 - 200:00" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table4_18_btn" Grid.Column="3" Content="Bord 4:&#xD;&#xA;18:00 - 20:00" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table5_18_btn" Grid.Column="4" Content="Bord 5:&#xD;&#xA;18:00 - 20:00" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="40" Width="130" Click="Button_Click"/>
+
+        <Button x:Name="Table1_20_btn" Content="Bord 1:&#xD;&#xA;20:00 - 22:00" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table2_20_btn" Grid.Column="1" Content="Bord 2:&#xD;&#xA;20:00 - 22:00" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table3_20_btn" Grid.Column="2" Content="Bord 3:&#xD;&#xA;20:00 - 22:00" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table4_20_btn" Grid.Column="3" Content="Bord 4:&#xD;&#xA;20:00 - 22:00" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="40" Width="130"/>
+        <Button x:Name="Table5_20_btn" Grid.Column="4" Content="Bord 5:&#xD;&#xA;20:00 - 22:00" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Height="40" Width="130"/>
     </Grid>
 </Window>

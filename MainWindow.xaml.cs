@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bordsbokningar.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,34 @@ namespace Bordsbokningar
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DateTime _date;
+        List<Booking> bookingsToday;
         public MainWindow()
         {
             InitializeComponent();
+
+            _date = new();
+            bookingsToday = new();
+        }
+
+        private void Date_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            DatePicker picker = (DatePicker)sender;
+            if (picker == null)
+            {
+                MessageBox.Show($"Värdet i variabeln \"Picker\" var null.\n" +
+                $"Avbryter metoden för att förhindra krash.");
+                return;
+            }
+
+            if (picker.SelectedDate == null)
+            {
+                MessageBox.Show("Inget datum blev valt!\n" +
+                "Avbryter metoden för att förhindra krash.");
+                return;
+            }
+
+
         }
     }
 }
