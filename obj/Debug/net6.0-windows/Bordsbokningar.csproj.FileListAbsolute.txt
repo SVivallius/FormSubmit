@@ -19,3 +19,5 @@ C:\Users\varul\Programmering\ITHS\Labb 3\Bordsbokningar\obj\Debug\net6.0-windows
 C:\Users\varul\Programmering\ITHS\Labb 3\Bordsbokningar\obj\Debug\net6.0-windows\Bordsbokningar.pdb
 C:\Users\varul\Programmering\ITHS\Labb 3\Bordsbokningar\obj\Debug\net6.0-windows\Bordsbokningar.genruntimeconfig.cache
 C:\Users\varul\Programmering\ITHS\Labb 3\Bordsbokningar\obj\Debug\net6.0-windows\ref\Bordsbokningar.dll
+C:\Users\varul\Programmering\ITHS\Labb 3\Bordsbokningar\obj\Debug\net6.0-windows\SetBooking.g.cs
+C:\Users\varul\Programmering\ITHS\Labb 3\Bordsbokningar\obj\Debug\net6.0-windows\SetBooking.baml

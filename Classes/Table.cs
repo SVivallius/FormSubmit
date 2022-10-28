@@ -6,27 +6,29 @@ using System.Threading.Tasks;
 
 namespace Bordsbokningar.Classes
 {
-    internal abstract class Table
+    public class Booking
     {
-        List<Booking> bookings;
-    }
+        public int table { get; set; }
+        public string customer { get; set; }
+        public DateTime bookedAt { get; set; }
 
-    class Table_1 : Table
-    {
-        public Table_1()
+        public Booking(int table, string customer, DateTime bookedAt)
         {
-
+            this.table = table;
+            this.customer = customer;
+            this.bookedAt = bookedAt;
         }
-    }
 
-    class Booking
-    {
-        string customerName { get; set; }
-        DateTime bookedAt { get; set; }
-        public Booking(DateTime dt, string customerName)
+        public override string ToString()
         {
-            this.customerName = customerName;
-            bookedAt = dt;
+            return $"{this.customer} har bokat bord Nr.{this.table}, " +
+                $"på datumet {bookedAt.Date}, " +
+                $"klockan {bookedAt.Hour}:{bookedAt.Minute}.";
+        }
+
+        public string ToFile()
+        {
+            return customer + "&//" + table + "&//" + bookedAt.ToString();
         }
     }
 }
