@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bordsbokningar.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,29 @@ namespace Bordsbokningar
     /// </summary>
     public partial class ShowBookings : Window
     {
-        public ShowBookings()
+        public List<Booking> thisBookings;
+
+        public ShowBookings(List<Booking> list)
         {
             InitializeComponent();
+
+            thisBookings = list;
+            foreach (Booking booking in list)
+            {
+                bookings_lbx.Items.Add(booking.ToString());
+            }
+        }
+
+        private void Close_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void unBook_btn_Click(object sender, RoutedEventArgs e)
+        {
+            int selection = bookings_lbx.SelectedIndex;
+            bookings_lbx.Items.RemoveAt(selection);
+            thisBookings.RemoveAt(selection);
         }
     }
 }

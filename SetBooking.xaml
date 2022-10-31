@@ -19,8 +19,8 @@
             <RowDefinition Height="*" MinHeight="20"/>
         </Grid.RowDefinitions>
         <Label Content="Erat namn:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="16" Margin="10,9,10,10"/>
-        <TextBox x:Name="customerName_txb" Grid.Column="1" TextWrapping="Wrap" FontSize="16" Margin="10,10,10,10" Grid.ColumnSpan="2"/>
-        <Button x:Name="Finalize_Booking_btn" Grid.Column="1" Content="Slutför bokning" Margin="10,10,10,0" Grid.Row="1" Click="Finalize" KeyDown="Finalize" Height="35" VerticalAlignment="Top"/>
+        <TextBox x:Name="customerName_txb" Grid.Column="1" TextWrapping="Wrap" FontSize="16" Margin="10,10,10,10" Grid.ColumnSpan="2" KeyDown="customerName_txb_KeyDown"/>
+        <Button x:Name="Finalize_Booking_btn" Grid.Column="1" Content="Slutför bokning" Margin="10,10,10,0" Grid.Row="1" Click="Finalize" Height="35" VerticalAlignment="Top"/>
         <Button x:Name="Cancel_Booking_btn" Grid.Column="2" Content="Avbryt" Margin="10,10,10,0" Grid.Row="1" IsCancel="True" Click="Cancel_Booking_btn_Click" Height="35" VerticalAlignment="Top"/>
     </Grid>
 

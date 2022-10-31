@@ -21,9 +21,9 @@ namespace Bordsbokningar.Classes
 
         public override string ToString()
         {
-            return $"{this.customer} har bokat bord Nr.{this.table}, " +
-                $"på datumet {bookedAt.Date}, " +
-                $"klockan {bookedAt.Hour}:{bookedAt.Minute}.";
+            return $"{this.customer} har bokat bord Nr.{this.table} " +
+                $"på datumet {bookedAt.Day}-{bookedAt.Month}-{bookedAt.Year}, " +
+                $"klockan {bookedAt.Hour}:00.";
         }
 
         public string ToFile()

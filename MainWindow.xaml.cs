@@ -31,6 +31,7 @@ namespace Bordsbokningar
 
             bookingDate = new DateTime();
             bookings = new List<Booking>();
+            FileManager.Load(bookings);
         }
 
         private void Date_Selected(object sender, SelectionChangedEventArgs e)
@@ -65,7 +66,7 @@ namespace Bordsbokningar
         {
             // Setting up data gathering
 
-            SetBooking setBooking = new SetBooking();
+            SetBooking setBooking = new();
             setBooking.ShowDialog();
             if (setBooking.DialogResult == false) return;
 
@@ -74,48 +75,30 @@ namespace Bordsbokningar
             Button recieved = (Button)sender;
             string preSplit = recieved.Name;
 
-            DateTime dt = new DateTime();
 
             // Save gathered data.
             string[] split = preSplit.Split(new string[] { "_"}, StringSplitOptions.RemoveEmptyEntries);
-            switch (split[1])
+            bool parse = Int32.TryParse(split[1], out int hour);
+
+            
+            if (!parse)
             {
-                case "16":
-                    dt = bookingDate.AddHours(16);
-                    switch (split[0].ToLower())
-                    {
-                        case "table1": bookings.Add(new Booking(1, customerName, dt)); break;
-                        case "table2": bookings.Add(new Booking(2, customerName, dt)); break;
-                        case "table3": bookings.Add(new Booking(3, customerName, dt)); break;
-                        case "table4": bookings.Add(new Booking(4, customerName, dt)); break;
-                        case "table5": bookings.Add(new Booking(5, customerName, dt)); break;
-                    }
-                    break;
-
-                case "18":
-                    dt = bookingDate.AddHours(18);
-                    switch (split[0].ToLower())
-                    {
-                        case "table1": bookings.Add(new Booking(1, customerName, dt)); break;
-                        case "table2": bookings.Add(new Booking(2, customerName, dt)); break;
-                        case "table3": bookings.Add(new Booking(3, customerName, dt)); break;
-                        case "table4": bookings.Add(new Booking(4, customerName, dt)); break;
-                        case "table5": bookings.Add(new Booking(5, customerName, dt)); break;
-                    }
-                    break;
-
-                case "20":
-                    dt = bookingDate.AddHours(20);
-                    switch (split[0].ToLower())
-                    {
-                        case "table1": bookings.Add(new Booking(1, customerName, dt)); break;
-                        case "table2": bookings.Add(new Booking(2, customerName, dt)); break;
-                        case "table3": bookings.Add(new Booking(3, customerName, dt)); break;
-                        case "table4": bookings.Add(new Booking(4, customerName, dt)); break;
-                        case "table5": bookings.Add(new Booking(5, customerName, dt)); break;
-                    }
-                    break;
+                MessageBox.Show("Konversionen till heltal av bokningstiden misslyckades!\n" +
+                "Avbryter metod för att förhindra krash.");
+                return;
             }
+
+            DateTime dt = new();
+            dt = bookingDate.AddHours(hour);
+            switch (split[0].ToLower())
+            {
+                case "table1": bookings.Add(new Booking(1, customerName, dt)); break;
+                case "table2": bookings.Add(new Booking(2, customerName, dt)); break;
+                case "table3": bookings.Add(new Booking(3, customerName, dt)); break;
+                case "table4": bookings.Add(new Booking(4, customerName, dt)); break;
+                case "table5": bookings.Add(new Booking(5, customerName, dt)); break;
+            }
+            FileManager.Save(bookings);
             SetAvailable(bookings);
         }
 
@@ -192,7 +175,17 @@ namespace Bordsbokningar
 
         private void DisplayBookings_Click(object sender, RoutedEventArgs e)
         {
-            
+            ShowBookings show = new ShowBookings(bookings);
+            show.ShowDialog();
+
+            if (show.thisBookings.Count < bookings.Count)
+            {
+                bookings.Clear();
+                bookings.AddRange(show.thisBookings);
+
+                FileManager.Save(bookings);
+                SetAvailable(bookings);
+            }
         }
     }
 }

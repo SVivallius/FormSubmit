@@ -36,5 +36,13 @@ namespace Bordsbokningar
             this.DialogResult = false;
             this.Close();
         }
+
+        private void customerName_txb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.DialogResult = true;
+            }
+        }
     }
 }

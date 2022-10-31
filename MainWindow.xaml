@@ -42,6 +42,6 @@
         <Button x:Name="Table3_20_btn" Grid.Column="2" Content="Bord 3:&#xD;&#xA;20:00 - 22:00" Grid.Row="4" Margin="10,10,10,10" Click="PickBooking" IsEnabled="False"/>
         <Button x:Name="Table4_20_btn" Grid.Column="3" Content="Bord 4:&#xD;&#xA;20:00 - 22:00" Grid.Row="4" Margin="10,10,10,10" Click="PickBooking" IsEnabled="False"/>
         <Button x:Name="Table5_20_btn" Grid.Column="4" Content="Bord 5:&#xD;&#xA;20:00 - 22:00" Grid.Row="4" Margin="10,10,10,10" Click="PickBooking" IsEnabled="False"/>
-        <Button x:Name="displayBookings" Grid.Column="3" Content="Visa bokningar (debugg)" HorizontalAlignment="Center" VerticalAlignment="Center" Width="280" Grid.ColumnSpan="2" Height="39" Click="DisplayBookings_Click"/>
+        <Button x:Name="displayBookings" Grid.Column="3" Content="Visa bokningar" HorizontalAlignment="Center" VerticalAlignment="Center" Width="280" Grid.ColumnSpan="2" Height="39" Click="DisplayBookings_Click"/>
     </Grid>
 </Window>

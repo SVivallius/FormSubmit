@@ -7,7 +7,17 @@
         mc:Ignorable="d"
         Title="ShowBookings" Height="450" Width="800">
     <Grid>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" MinHeight="332"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="bookings_lbx" Height="332" VerticalAlignment="Center" HorizontalAlignment="Left" Width="780" Margin="10,0,0,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="Close_btn" Content="Stäng fönster" HorizontalAlignment="Left" Margin="410,0,0,0" Width="180" Grid.Row="1" Click="Close_btn_Click" Grid.Column="1" Height="50" VerticalAlignment="Center"/>
+        <Button x:Name="unBook_btn" Content="Avboka markerad" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Width="180" Grid.Row="1" Click="unBook_btn_Click"/>
     </Grid>
+
 </Window>
