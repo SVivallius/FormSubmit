@@ -34,7 +34,7 @@ namespace Bordsbokningar.Classes
                         int table = int.Parse(split[1]);
                         DateTime bookedAt = DateTime.Parse(split[2]);
 
-                        bookings.Add(new Booking(table, name, bookedAt));
+                        if (bookedAt.DayOfYear > DateTime.Now.DayOfYear) bookings.Add(new Booking(table, name, bookedAt));
                     }
                     sr.Close();
                 }
