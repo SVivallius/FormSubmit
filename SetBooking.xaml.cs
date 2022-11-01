@@ -28,7 +28,7 @@ namespace Bordsbokningar
 
         private void Finalize(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            if (VerifyInput()) this.DialogResult = true;
         }
 
         private void Cancel_Booking_btn_Click(object sender, RoutedEventArgs e)
@@ -39,10 +39,25 @@ namespace Bordsbokningar
 
         private void customerName_txb_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key == Key.Enter && VerifyInput())
             {
                 this.DialogResult = true;
             }
+            if (e.Key == Key.Escape)
+            {
+                this.DialogResult = false;
+                return;
+            }
+        }
+
+        private bool VerifyInput()
+        {
+            if (this.customerName_txb.Text.Length == 0)
+            {
+                MessageBox.Show("Fältet \"Namn\" kan inte vara tomt!");
+                return false;
+            }
+            return true;
         }
     }
 }

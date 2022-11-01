@@ -51,10 +51,11 @@ namespace Bordsbokningar
                 return;
             }
             
-            if (picker.SelectedDate < DateTime.Now)
+            if (picker.SelectedDate < DateTime.Today)
             {
                 MessageBox.Show("Du kan inte ange ett redan passerat datum!\n" +
                     "Avbryter val.");
+                picker.SelectedDate = DateTime.Today;
                 return;
             }
 
@@ -178,11 +179,8 @@ namespace Bordsbokningar
             ShowBookings show = new ShowBookings(bookings);
             show.ShowDialog();
 
-            if (show.thisBookings.Count < bookings.Count)
+            if (show.unBookedSomething)
             {
-                bookings.Clear();
-                bookings.AddRange(show.thisBookings);
-
                 FileManager.Save(bookings);
                 SetAvailable(bookings);
             }

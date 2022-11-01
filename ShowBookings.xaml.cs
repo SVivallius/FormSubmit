@@ -21,13 +21,15 @@ namespace Bordsbokningar
     public partial class ShowBookings : Window
     {
         public List<Booking> thisBookings;
+        public bool unBookedSomething;
 
         public ShowBookings(List<Booking> list)
         {
             InitializeComponent();
+            unBookedSomething = false;
 
             thisBookings = list;
-            foreach (Booking booking in list)
+            foreach (Booking booking in thisBookings)
             {
                 bookings_lbx.Items.Add(booking.ToString());
             }
@@ -43,6 +45,7 @@ namespace Bordsbokningar
             int selection = bookings_lbx.SelectedIndex;
             bookings_lbx.Items.RemoveAt(selection);
             thisBookings.RemoveAt(selection);
+            unBookedSomething = true;
         }
     }
 }
